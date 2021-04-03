@@ -52,7 +52,7 @@ const config: WebsiteConfig = {
   title: 'taptappun-blog',
   description: 'This is a taptappun\'s private blog',
   coverImage: 'img/blog-cover.png',
-  logo: 'img/ghost-logo.png',
+  logo: 'img/taptappun-blog.png',
   lang: 'jp',
   siteUrl: 'https://taptappun-blog.netlify.app/',
   facebook: 'https://www.facebook.com/taku.kobayashi.560/',
