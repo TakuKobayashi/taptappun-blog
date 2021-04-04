@@ -1,9 +1,8 @@
 {
-  "name": "gatsby-casper",
-  "description": "Casper for gatsby",
-  "version": "0.0.0",
-  "private": true,
-  "author": "Scott Cooper <scttcper@gmail.com>",
+  "name": "taptappun-blog",
+  "description": "This is a taptappun's private blog",
+  "version": "0.0.1",
+  "author": "Taku Kobayashi <keep_slimbody@yahoo.co.jp>",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
