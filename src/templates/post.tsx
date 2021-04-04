@@ -429,7 +429,6 @@ export const query = graphql`
         userDate: date(formatString: "D MMMM YYYY")
         date
         tags
-        excerpt
         image {
           childImageSharp {
             fluid(maxWidth: 3720) {
@@ -462,7 +461,6 @@ export const query = graphql`
         node {
           id
           timeToRead
-          excerpt
           frontmatter {
             title
             date
