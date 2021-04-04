@@ -16,7 +16,7 @@ interface AuthorListItemProps {
   author: Author;
 }
 
-export const AuthorListItem: React.FC<AuthorListItemProps> = props => {
+export const AuthorListItem: React.FC<AuthorListItemProps> = (props) => {
   const [hovered, setHover] = useState(false);
   let timeout: ReturnType<typeof setTimeout>;
   function handleMouseEnter() {
@@ -45,36 +45,24 @@ export const AuthorListItem: React.FC<AuthorListItemProps> = props => {
         handleMouseLeave();
       }}
     >
-      {props.tooltip === 'small' && (
-        <AuthorNameTooltip className="author-name-tooltip">{props.author.id}</AuthorNameTooltip>
-      )}
+      {props.tooltip === 'small' && <AuthorNameTooltip className="author-name-tooltip">{props.author.id}</AuthorNameTooltip>}
       {props.tooltip === 'large' && (
         <div css={[AuthorCardStyles, hovered && Hovered]} className="author-card">
           {props.author.avatar.children.length && (
-            <Img
-              css={AuthorProfileImage}
-              className="author-profile-image"
-              fluid={props.author.avatar.children[0].fluid}
-              fadeIn={false}
-            />
+            <Img css={AuthorProfileImage} className="author-profile-image" fluid={props.author.avatar.children[0].fluid} fadeIn={false} />
           )}
           <div className="author-info">
             <div className="bio">
               <h2>{props.author.id}</h2>
               <p>{props.author.bio}</p>
               <p>
-                <Link to={`/author/${_.kebabCase(props.author.id)}/`}>More posts</Link> by{' '}
-                {props.author.id}.
+                <Link to={`/author/${_.kebabCase(props.author.id)}/`}>More posts</Link> by {props.author.id}.
               </p>
             </div>
           </div>
         </div>
       )}
-      <Link
-        css={AuthorAvatar}
-        className="author-avatar"
-        to={`/author/${_.kebabCase(props.author.id)}/`}
-      >
+      <Link css={AuthorAvatar} className="author-avatar" to={`/author/${_.kebabCase(props.author.id)}/`}>
         <Img
           css={AuthorProfileImage}
           className="author-profile-image"

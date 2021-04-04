@@ -65,12 +65,12 @@ interface AuthorTemplateProps {
 const Author = ({ data, location }: AuthorTemplateProps) => {
   const author = data.authorYaml;
 
-  const edges = data.allMarkdownRemark.edges.filter(edge => {
+  const edges = data.allMarkdownRemark.edges.filter((edge) => {
     const isDraft = edge.node.frontmatter.draft !== true || process.env.NODE_ENV === 'development';
 
     let authorParticipated = false;
     if (edge.node.frontmatter.author) {
-      edge.node.frontmatter.author.forEach(element => {
+      edge.node.frontmatter.author.forEach((element) => {
         if (element.id === author.id) {
           authorParticipated = true;
         }
@@ -98,18 +98,8 @@ const Author = ({ data, location }: AuthorTemplateProps) => {
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={`${author.id} - ${config.title}`} />
         <meta name="twitter:url" content={config.siteUrl + location.pathname} />
-        {config.twitter && (
-          <meta
-            name="twitter:site"
-            content={`@${config.twitter.split('https://twitter.com/')[1]}`}
-          />
-        )}
-        {config.twitter && (
-          <meta
-            name="twitter:creator"
-            content={`@${config.twitter.split('https://twitter.com/')[1]}`}
-          />
-        )}
+        {config.twitter && <meta name="twitter:site" content={`@${config.twitter.split('https://twitter.com/')[1]}`} />}
+        {config.twitter && <meta name="twitter:creator" content={`@${config.twitter.split('https://twitter.com/')[1]}`} />}
       </Helmet>
       <Wrapper>
         <header className="site-archive-header" css={[SiteHeader, SiteArchiveHeader]}>
@@ -148,22 +138,14 @@ const Author = ({ data, location }: AuthorTemplateProps) => {
                     </div>
                     {author.website && (
                       <AuthorSocialLink className="author-social-link">
-                        <AuthorSocialLinkAnchor
-                          href={author.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <AuthorSocialLinkAnchor href={author.website} target="_blank" rel="noopener noreferrer">
                           Website
                         </AuthorSocialLinkAnchor>
                       </AuthorSocialLink>
                     )}
                     {author.twitter && (
                       <AuthorSocialLink className="author-social-link">
-                        <AuthorSocialLinkAnchor
-                          href={`https://twitter.com/${author.twitter}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <AuthorSocialLinkAnchor href={`https://twitter.com/${author.twitter}`} target="_blank" rel="noopener noreferrer">
                           Twitter
                         </AuthorSocialLinkAnchor>
                       </AuthorSocialLink>
@@ -224,11 +206,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
-      filter: { frontmatter: { draft: { ne: true } } }
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 2000
-    ) {
+    allMarkdownRemark(filter: { frontmatter: { draft: { ne: true } } }, sort: { fields: [frontmatter___date], order: DESC }, limit: 2000) {
       edges {
         node {
           excerpt

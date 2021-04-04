@@ -188,7 +188,7 @@ export const SiteHeaderBackground = css`
 `;
 
 export const ResponsiveHeaderBackground = styled.div<{ backgroundImage?: string }>`
-  ${p =>
+  ${(p) =>
     p.backgroundImage &&
     `
     position: relative;
@@ -232,7 +232,7 @@ export const ResponsiveHeaderBackground = styled.div<{ backgroundImage?: string 
     }
   `}
 
-  ${p =>
+  ${(p) =>
     !p.backgroundImage &&
     `
 

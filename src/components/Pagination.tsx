@@ -56,7 +56,7 @@ const navCss = css`
     float: left;
     padding: 8px 16px;
     text-decoration: none;
-    transition: background-color .3s;
+    transition: background-color 0.3s;
     border: 1px solid #ddd;
     margin: 0 4px;
     box-shadow: rgba(39, 44, 49, 0.06) 8px 14px 38px, rgba(39, 44, 49, 0.03) 1px 3px 8px;
@@ -65,9 +65,9 @@ const navCss = css`
     min-width: 50px;
 
     &.active {
-      -webkit-box-shadow:inset 3px 0px 0px 0px ${darken(0.05, colors.darkgrey)};
-      -moz-box-shadow:inset 3px 0px 0px 0px ${darken(0.05, colors.darkgrey)};
-      box-shadow:inset 3px 0px 0px 0px ${darken(0.05, colors.darkgrey)};
+      -webkit-box-shadow: inset 3px 0px 0px 0px ${darken(0.05, colors.darkgrey)};
+      -moz-box-shadow: inset 3px 0px 0px 0px ${darken(0.05, colors.darkgrey)};
+      box-shadow: inset 3px 0px 0px 0px ${darken(0.05, colors.darkgrey)};
     }
 
     &:hover:not(.active) {

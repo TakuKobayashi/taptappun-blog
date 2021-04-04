@@ -10,7 +10,7 @@ export interface SubscribeProps {
   title: string;
 }
 
-export const Subscribe: React.FC<SubscribeProps> = props => {
+export const Subscribe: React.FC<SubscribeProps> = (props) => {
   return (
     <SubscribeFormSection>
       <h3 css={SubscribeFormTitle}>Subscribe to {props.title}</h3>
@@ -27,10 +27,7 @@ const SubscribeFormSection = styled.section`
   border: ${lighten('0.1', colors.lightgrey)} 1px solid;
   text-align: center;
   /* background: linear-gradient(color(var(--whitegrey) l(+6%)), color(var(--whitegrey) l(+4%))); */
-  background: linear-gradient(
-    ${lighten('0.06', colors.whitegrey)},
-    ${lighten('0.04', colors.whitegrey)}
-  );
+  background: linear-gradient(${lighten('0.06', colors.whitegrey)}, ${lighten('0.04', colors.whitegrey)});
   border-radius: 3px;
 
   p {

@@ -40,13 +40,7 @@ export const ReadNext = ({ relatedPosts, currentPageSlug, tags, pageContext }: R
     <ReadNextAside className="read-next" css={outer}>
       <div css={inner}>
         <ReadNextFeed className="read-next-feed">
-          {showRelatedPosts && (
-            <ReadNextCard
-              currentPageSlug={currentPageSlug}
-              tags={tags}
-              relatedPosts={relatedPosts}
-            />
-          )}
+          {showRelatedPosts && <ReadNextCard currentPageSlug={currentPageSlug} tags={tags} relatedPosts={relatedPosts} />}
 
           {pageContext.prev && <PostCard post={pageContext.prev} />}
           {pageContext.next && <PostCard post={pageContext.next} />}

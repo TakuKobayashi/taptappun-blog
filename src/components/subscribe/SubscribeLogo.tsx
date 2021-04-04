@@ -22,7 +22,7 @@ const SubscribeLogo = () => (
           childImageSharp {
             # Specify the image processing specifications right in the query.
             # Makes it trivial to update as your page's design changes.
-            fixed(quality: 100 width: 500) {
+            fixed(quality: 100, width: 500) {
               ...GatsbyImageSharpFixed
             }
           }
@@ -35,12 +35,7 @@ const SubscribeLogo = () => (
       }
 
       return (
-        <img
-          css={SubscribeOverlayLogo}
-          className="subscribe-overlay-logo"
-          src={data.logo.childImageSharp.fixed.src}
-          alt={config.title}
-        />
+        <img css={SubscribeOverlayLogo} className="subscribe-overlay-logo" src={data.logo.childImageSharp.fixed.src} alt={config.title} />
       );
     }}
   />

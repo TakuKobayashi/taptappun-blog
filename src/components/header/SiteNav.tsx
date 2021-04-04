@@ -122,20 +122,12 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                 </a>
               )}
               {config.twitter && (
-                <a
-                  css={SocialLink}
-                  href={config.twitter}
-                  title="Twitter"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a css={SocialLink} href={config.twitter} title="Twitter" target="_blank" rel="noopener noreferrer">
                   <Twitter />
                 </a>
               )}
             </SocialLinks>
-            {config.showSubscribe && (
-              <SubscribeButton onClick={this.openModal}>Subscribe</SubscribeButton>
-            )}
+            {config.showSubscribe && <SubscribeButton onClick={this.openModal}>Subscribe</SubscribeButton>}
           </SiteNavRight>
         </nav>
       </>

@@ -26,9 +26,7 @@ export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
 
   return (
     <article
-      className={`post-card ${post.frontmatter.image ? '' : 'no-image'} ${
-        large ? 'post-card-large' : ''
-      }`}
+      className={`post-card ${post.frontmatter.image ? '' : 'no-image'} ${large ? 'post-card-large' : ''}`}
       css={[PostCardStyles, large && PostCardLarge]}
     >
       {post.frontmatter.image && (
@@ -47,11 +45,7 @@ export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
       <PostCardContent className="post-card-content">
         <Link className="post-card-content-link" css={PostCardContentLink} to={post.fields.slug}>
           <PostCardHeader className="post-card-header">
-            {post.frontmatter.tags && (
-              <PostCardPrimaryTag className="post-card-primary-tag">
-                {post.frontmatter.tags[0]}
-              </PostCardPrimaryTag>
-            )}
+            {post.frontmatter.tags && <PostCardPrimaryTag className="post-card-primary-tag">{post.frontmatter.tags[0]}</PostCardPrimaryTag>}
             <PostCardTitle className="post-card-title">{post.frontmatter.title}</PostCardTitle>
           </PostCardHeader>
           <PostCardExcerpt className="post-card-excerpt">
@@ -72,8 +66,7 @@ export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
               })}
             </span>
             <span className="post-card-byline-date">
-              <time dateTime={datetime}>{displayDatetime}</time>{' '}
-              <span className="bull">&bull;</span> {post.timeToRead} min read
+              <time dateTime={datetime}>{displayDatetime}</time> <span className="bull">&bull;</span> {post.timeToRead} min read
             </span>
           </PostCardBylineContent>
         </PostCardMeta>

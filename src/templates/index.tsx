@@ -50,7 +50,7 @@ export interface IndexProps {
   };
 }
 
-const IndexPage: React.FC<IndexProps> = props => {
+const IndexPage: React.FC<IndexProps> = (props) => {
   const { width, height } = props.data.header.childImageSharp.fixed;
 
   return (
@@ -64,28 +64,15 @@ const IndexPage: React.FC<IndexProps> = props => {
         <meta property="og:title" content={config.title} />
         <meta property="og:description" content={config.description} />
         <meta property="og:url" content={config.siteUrl} />
-        <meta
-          property="og:image"
-          content={`${config.siteUrl}${props.data.header.childImageSharp.fixed.src}`}
-        />
+        <meta property="og:image" content={`${config.siteUrl}${props.data.header.childImageSharp.fixed.src}`} />
         {config.facebook && <meta property="article:publisher" content={config.facebook} />}
-        {config.googleSiteVerification && (
-          <meta name="google-site-verification" content={config.googleSiteVerification} />
-        )}
+        {config.googleSiteVerification && <meta name="google-site-verification" content={config.googleSiteVerification} />}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={config.title} />
         <meta name="twitter:description" content={config.description} />
         <meta name="twitter:url" content={config.siteUrl} />
-        <meta
-          name="twitter:image"
-          content={`${config.siteUrl}${props.data.header.childImageSharp.fixed.src}`}
-        />
-        {config.twitter && (
-          <meta
-            name="twitter:site"
-            content={`@${config.twitter.split('https://twitter.com/')[1]}`}
-          />
-        )}
+        <meta name="twitter:image" content={`${config.siteUrl}${props.data.header.childImageSharp.fixed.src}`} />
+        {config.twitter && <meta name="twitter:site" content={`@${config.twitter.split('https://twitter.com/')[1]}`} />}
         <meta property="og:image:width" content={width.toString()} />
         <meta property="og:image:height" content={height.toString()} />
       </Helmet>
@@ -102,11 +89,7 @@ const IndexPage: React.FC<IndexProps> = props => {
             <SiteHeaderContent className="site-header-conent">
               <SiteTitle className="site-title">
                 {props.data.logo ? (
-                  <img
-                    style={{ maxHeight: '110px' }}
-                    src={props.data.logo.childImageSharp.fixed.src}
-                    alt={config.title}
-                  />
+                  <img style={{ maxHeight: '110px' }} src={props.data.logo.childImageSharp.fixed.src} alt={config.title} />
                 ) : (
                   config.title
                 )}
@@ -121,8 +104,7 @@ const IndexPage: React.FC<IndexProps> = props => {
               {props.data.allMarkdownRemark.edges.map((post, index) => {
                 // filter out drafts in production
                 return (
-                  (post.node.frontmatter.draft !== true ||
-                    process.env.NODE_ENV !== 'production') && (
+                  (post.node.frontmatter.draft !== true || process.env.NODE_ENV !== 'production') && (
                     <PostCard key={post.node.fields.slug} post={post.node} large={index === 0} />
                   )
                 );
@@ -131,12 +113,7 @@ const IndexPage: React.FC<IndexProps> = props => {
           </div>
         </main>
         {props.children}
-        {props.pageContext.numPages > 1 && (
-          <Pagination
-            currentPage={props.pageContext.currentPage}
-            numPages={props.pageContext.numPages}
-          />
-        )}
+        {props.pageContext.numPages > 1 && <Pagination currentPage={props.pageContext.currentPage} numPages={props.pageContext.numPages} />}
         <Footer />
       </Wrapper>
     </IndexLayout>

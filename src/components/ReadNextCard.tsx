@@ -27,21 +27,20 @@ export interface ReadNextProps {
   };
 }
 
-export const ReadNextCard: React.FC<ReadNextProps> = props => {
+export const ReadNextCard: React.FC<ReadNextProps> = (props) => {
   // filter out current post and limit to 3 related posts
-  const relatedPosts = props.relatedPosts.edges.filter(post => post.node.fields.slug !== props.currentPageSlug).slice(0, 3);
+  const relatedPosts = props.relatedPosts.edges.filter((post) => post.node.fields.slug !== props.currentPageSlug).slice(0, 3);
 
   return (
     <ReadNextCardArticle className="read-next-card">
       <header className="read-next-card-header">
         <ReadNextCardHeaderTitle>
-          <span>More in</span>{' '}
-          <Link to={`/tags/${_.kebabCase(props.tags[0])}/`}>{props.tags[0]}</Link>
+          <span>More in</span> <Link to={`/tags/${_.kebabCase(props.tags[0])}/`}>{props.tags[0]}</Link>
         </ReadNextCardHeaderTitle>
       </header>
       <ReadNextCardContent className="read-next-card-content">
         <ul>
-          {relatedPosts.map(n => {
+          {relatedPosts.map((n) => {
             const date = new Date(n.node.frontmatter.date);
             // 2018-08-20
             const datetime = format(date, 'yyyy-MM-dd');
@@ -54,8 +53,7 @@ export const ReadNextCard: React.FC<ReadNextProps> = props => {
                 </h4>
                 <ReadNextCardMeta className="read-next-card-meta">
                   <p>
-                    <time dateTime={datetime}>{displayDatetime}</time> - {n.node.timeToRead} min
-                    read
+                    <time dateTime={datetime}>{displayDatetime}</time> - {n.node.timeToRead} min read
                   </p>
                 </ReadNextCardMeta>
               </li>
@@ -86,10 +84,7 @@ const ReadNextCardArticle = styled.article`
     color(var(--darkgrey) l(+2%)),
     color(var(--darkgrey) l(-5%))
   ); */
-  background: linear-gradient(
-    ${lighten('0.02', colors.darkgrey)},
-    ${lighten('-0.05', colors.darkgrey)}
-  );
+  background: linear-gradient(${lighten('0.02', colors.darkgrey)}, ${lighten('-0.05', colors.darkgrey)});
   border-radius: 3px;
 
   a {

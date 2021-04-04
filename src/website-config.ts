@@ -50,7 +50,7 @@ export interface WebsiteConfig {
 
 const config: WebsiteConfig = {
   title: 'taptappun-blog',
-  description: 'This is a taptappun\'s private blog',
+  description: "This is a taptappun's private blog",
   coverImage: 'img/blog-cover.png',
   logo: 'img/taptappun-blog.png',
   lang: 'jp',
